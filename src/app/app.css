@@ -1,0 +1,21 @@
+.animate-pulse-glow {
+  animation: profileGlow 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+
+@keyframes profileGlow {
+  from {
+    opacity: 0.34;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 0.68;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow {
+    animation: none;
+  }
+}

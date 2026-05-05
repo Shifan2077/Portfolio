@@ -1,0 +1,24 @@
+<article
+  class="group h-full rounded-[8px] border border-black/5 bg-white/80 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl transition duration-500 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(182,255,59,0.4)] md:p-7"
+  data-cursor-hover
+>
+  <div class="mb-8 flex items-center justify-between gap-4">
+    <span class="rounded-full border border-black/5 bg-[#B6FF3B]/20 px-3 py-1 text-xs font-medium uppercase text-[#111111]">
+      {{ project.metric }}
+    </span>
+    <span class="grid size-10 place-items-center rounded-full bg-[#111111] text-[#B6FF3B] transition duration-300 group-hover:bg-[#A3FF12] group-hover:text-[#111111]">
+      +
+    </span>
+  </div>
+
+  <h3 class="font-serif text-2xl text-[#111111] md:text-3xl">{{ project.title }}</h3>
+  <p class="mt-4 text-base leading-7 text-[#6B7280]">{{ project.description }}</p>
+
+  <div class="mt-8 flex flex-wrap gap-2">
+    @for (tech of project.stack; track tech) {
+      <span class="rounded-full border border-black/5 bg-white px-3 py-1 text-sm text-[#6B7280] transition duration-300 group-hover:border-[#B6FF3B]/50 group-hover:text-[#111111]">
+        {{ tech }}
+      </span>
+    }
+  </div>
+</article>

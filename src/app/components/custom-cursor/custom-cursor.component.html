@@ -1,0 +1,12 @@
+<div
+  class="cursor-trail"
+  [class.cursor-hidden]="!isVisible()"
+  [class.cursor-hover]="isHovering()"
+  [style.transform]="'translate3d(' + trail.x + 'px,' + trail.y + 'px,0)'"
+></div>
+<div
+  class="cursor-dot"
+  [class.cursor-hidden]="!isVisible()"
+  [class.cursor-hover]="isHovering()"
+  [style.transform]="'translate3d(' + dot.x + 'px,' + dot.y + 'px,0)'"
+></div>

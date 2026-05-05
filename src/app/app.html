@@ -1,0 +1,233 @@
+<app-custom-cursor />
+
+<main class="relative overflow-hidden bg-white text-[#111111]">
+  <div class="hero-glow pointer-events-none absolute left-1/2 top-0 h-[820px] w-[min(1120px,115vw)] -translate-x-1/2 opacity-90"></div>
+
+  <section id="home" class="relative z-10 px-5 pb-10 pt-5 sm:px-8 lg:px-12">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between">
+      <a href="#home" class="font-serif text-xl italic text-[#111111]" data-cursor-hover>
+        Shifan Nagarji
+      </a>
+      <div class="hidden items-center gap-7 text-sm font-medium text-[#6B7280] md:flex">
+        <a href="#skills" class="transition hover:text-[#111111]" data-cursor-hover>Skills</a>
+        <a href="#projects" class="transition hover:text-[#111111]" data-cursor-hover>Projects</a>
+        <a href="#contact" class="transition hover:text-[#111111]" data-cursor-hover>Contact</a>
+      </div>
+      <a
+        href="#contact"
+        class="grid size-10 place-items-center rounded-full border border-black/10 bg-white/70 text-lg shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl transition duration-300 hover:bg-[#B6FF3B]"
+        data-cursor-hover
+        aria-label="Open contact section"
+      >
+        =
+      </a>
+    </nav>
+
+    <div class="relative mx-auto min-h-[820px] max-w-7xl pt-8 text-center md:min-h-[920px]">
+      <div appReveal>
+        <p class="mx-auto w-fit text-sm font-medium text-[#111111]">AI-powered systems for 2026</p>
+        <h1 class="hero-title relative z-20 mx-auto mt-8 max-w-5xl">
+          <span class="relative z-30 block font-sans text-[clamp(4.2rem,13vw,9.8rem)] font-medium leading-[0.82] tracking-normal">
+            Hi I&apos;m Shifan
+          </span>
+          <span class="relative z-30 -mt-3 block font-serif text-[clamp(4rem,12vw,9.3rem)] italic leading-[0.78] tracking-normal">
+            AI &amp; ML Engineer
+          </span>
+        </h1>
+      </div>
+
+      <div class="absolute left-1/2 top-[235px] z-0 w-[min(470px,78vw)] -translate-x-1/2 md:top-[250px]" appReveal [revealDelay]="110">
+        <div class="absolute inset-x-6 top-16 h-[330px] rounded-full bg-[#B6FF3B] opacity-45 blur-3xl animate-pulse-glow"></div>
+        <img
+          src="shifan-photo.png"
+          alt="Md Shifan Nagarji profile photo"
+          class="hero-float relative mx-auto aspect-[0.82] w-full rounded-b-[46%] rounded-t-full object-cover object-top grayscale opacity-85 drop-shadow-[0_30px_60px_rgba(0,0,0,0.16)]"
+        />
+      </div>
+
+      <div class="absolute left-0 top-[430px] hidden max-w-[285px] text-left md:block" appReveal [revealDelay]="180">
+        <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+          <span class="size-2 rounded-full bg-[#B6FF3B] shadow-[0_0_18px_rgba(182,255,59,0.9)]"></span>
+          Available for Opportunities
+        </span>
+      </div>
+
+      <p class="absolute right-0 top-[430px] hidden max-w-[315px] text-left text-base leading-7 text-[#111111] md:block" appReveal [revealDelay]="220">
+        I build AI-powered systems using RAG, machine learning, and data-driven solutions.
+      </p>
+
+      <div class="absolute inset-x-0 bottom-12 mx-auto grid max-w-5xl gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
+        <div class="flex items-center justify-center gap-2 md:justify-start" appReveal [revealDelay]="260">
+          <div class="flex -space-x-2">
+            <span class="size-8 rounded-full border-2 border-white bg-[#111111]"></span>
+            <span class="size-8 rounded-full border-2 border-white bg-[#B6FF3B]"></span>
+            <span class="size-8 rounded-full border-2 border-white bg-[#D4FF6A]"></span>
+          </div>
+          <p class="max-w-[210px] text-left text-xs leading-4 text-[#6B7280]">
+            Trusted to turn technical ideas into usable products.
+          </p>
+        </div>
+        <a
+          href="#projects"
+          class="rounded-full bg-[#111111] px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#A3FF12] hover:text-[#111111]"
+          data-cursor-hover
+          appReveal
+          [revealDelay]="320"
+        >
+          View Projects
+        </a>
+        <p class="mx-auto max-w-[330px] text-center text-base leading-7 text-[#6B7280] md:hidden" appReveal [revealDelay]="220">
+          I build AI-powered systems using RAG, machine learning, and data-driven solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="relative z-10 mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-12">
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 text-sm font-semibold text-[#9CA3AF]" appReveal>
+      @for (skill of skills; track skill) {
+        <span class="transition duration-300 hover:text-[#111111]" data-cursor-hover>{{ skill }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="section-shell text-center">
+    <p class="section-kicker" appReveal>Hello!</p>
+    <h2 class="mx-auto max-w-3xl font-sans text-[clamp(2rem,4.7vw,4rem)] font-medium leading-[1.05] tracking-normal" appReveal [revealDelay]="100">
+      focus is on blending clear strategy, thoughtful AI engineering, and user empathy to craft experiences
+      <span class="text-[#9CA3AF]">that solve real problems</span>
+    </h2>
+  </section>
+
+  <section class="section-shell">
+    <div class="text-center" appReveal>
+      <p class="section-kicker">My Project Layout</p>
+      <h2 class="section-title mx-auto">Here&apos;s how I works</h2>
+    </div>
+    <div class="process-grid mt-14">
+      @for (step of processSteps; track step.number; let index = $index) {
+        <article appReveal [revealDelay]="index * 110" class="process-card" data-cursor-hover>
+          <span class="font-serif text-5xl">{{ step.number }}</span>
+          <div>
+            <h3 class="font-serif text-3xl">{{ step.title }}</h3>
+            <p class="mt-3 text-sm leading-6 text-[#6B7280]">{{ step.text }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="projects" class="section-shell">
+    <div class="text-center" appReveal>
+      <p class="section-kicker">New Projects</p>
+      <h2 class="section-title mx-auto">Selected Works/Projects</h2>
+    </div>
+
+    <div class="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-2">
+      @for (project of projects; track project.title; let index = $index) {
+        <article appReveal [revealDelay]="index * 100" class="group" data-cursor-hover>
+          <div class="rounded-[10px] border border-black/5 bg-white p-3 shadow-[0_16px_50px_rgba(0,0,0,0.08)] transition duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_55px_rgba(182,255,59,0.35)]">
+            <div class="selected-preview min-h-[300px] rounded-[8px] p-5">
+              <div class="flex h-full min-h-[260px] flex-col rounded-[8px] bg-white/90 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="text-xs font-semibold text-[#9CA3AF]">{{ project.metric }}</span>
+                  <span class="size-8 rounded-full bg-[#B6FF3B]"></span>
+                </div>
+                <img
+                  [src]="project.image"
+                  [alt]="project.title + ' project screenshot'"
+                  class="min-h-0 flex-1 rounded-[8px] object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-lg font-medium text-[#111111]">{{ project.title }}</h3>
+              <p class="mt-1 max-w-md text-sm leading-6 text-[#6B7280]">{{ project.description }}</p>
+            </div>
+            <div class="hidden flex-wrap justify-end gap-2 sm:flex">
+              @for (tech of project.stack.slice(0, 2); track tech) {
+                <span class="rounded-full bg-black/[0.04] px-3 py-1 text-xs text-[#6B7280]">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.55fr_1.45fr] lg:items-center">
+      <div appReveal>
+        <div class="mx-auto max-w-[260px] rounded-[10px] border border-black/5 bg-white p-3 shadow-[0_18px_45px_rgba(0,0,0,0.08)] lg:mx-0">
+          <img
+            src="shifan-photo.png"
+            alt="Md Shifan Nagarji portrait"
+            class="aspect-[3/4] w-full rounded-[8px] object-cover object-center grayscale"
+          />
+          <div class="mt-4 rounded-[8px] bg-[#B6FF3B]/20 px-4 py-3 text-center">
+            <p class="font-medium text-[#111111]">Md Shifan Nagarji</p>
+            <p class="mt-1 text-sm text-[#6B7280]">AI &amp; ML Engineer</p>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-center gap-3 text-sm lg:justify-start">
+          <a href="https://github.com/ShifanNagarji" data-cursor-hover>GitHub</a>
+          <a href="https://www.linkedin.com/in/md-shifan-nagarji" data-cursor-hover>LinkedIn</a>
+          <a href="mailto:mdshifannagarji@gmail.com" data-cursor-hover>Email</a>
+        </div>
+      </div>
+      <div appReveal [revealDelay]="120">
+        <p class="section-kicker">Who Am I</p>
+        <h2 class="font-sans text-[clamp(2.2rem,5vw,4.6rem)] font-medium leading-none tracking-normal">
+          Pushing Boundaries <span class="text-[#9CA3AF]">since 2022</span>
+        </h2>
+        <p class="mt-6 max-w-2xl text-base leading-7 text-[#6B7280]">
+          An applied AI/ML engineer focused on RAG systems, data analytics, and cloud-backed products that make technical workflows easier to understand and use.
+        </p>
+        <div class="mt-10 divide-y divide-black/10 border-y border-black/10">
+          <div class="grid grid-cols-[1fr_1fr_auto] gap-4 py-4 text-sm">
+            <span class="font-semibold">B.E CSE (AI &amp; ML)</span>
+            <span class="text-[#6B7280]">Gharda Institute of Technology</span>
+            <span>2022 - 2026</span>
+          </div>
+          <div class="grid grid-cols-[1fr_1fr_auto] gap-4 py-4 text-sm">
+            <span class="font-semibold">Expected Graduation</span>
+            <span class="text-[#6B7280]">May 2026</span>
+            <span>CGPA 8.11</span>
+          </div>
+          @for (achievement of achievements; track achievement) {
+            <div class="grid grid-cols-[1fr_1fr_auto] gap-4 py-4 text-sm">
+              <span class="font-semibold">Certification</span>
+              <span class="text-[#6B7280]">{{ achievement }}</span>
+              <span>Verified</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative z-10 mt-10 bg-[radial-gradient(circle_at_50%_0%,#B6FF3B_0%,rgba(182,255,59,0.7)_20%,rgba(182,255,59,0.18)_45%,transparent_70%)] px-5 pb-12 pt-28 text-center sm:px-8 lg:px-12">
+    <div appReveal>
+      <h2 class="font-sans text-[clamp(3rem,8vw,7.5rem)] font-medium leading-none tracking-normal">Let&apos;s Make It Happen</h2>
+      <p class="mx-auto mt-5 max-w-xl text-base leading-7 text-[#6B7280]">
+        Always open to new opportunities, collaborations, and creative AI challenges.
+      </p>
+      <a href="mailto:mdshifannagarji@gmail.com" class="mt-8 inline-flex rounded-full bg-[#111111] px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#A3FF12] hover:text-[#111111]" data-cursor-hover>
+        Get in Touch
+      </a>
+    </div>
+    <div class="mx-auto mt-20 flex max-w-7xl flex-wrap items-center justify-between gap-5 text-sm text-[#111111]">
+      <div class="flex gap-6">
+        <a href="#home" data-cursor-hover>Home</a>
+        <a href="#projects" data-cursor-hover>Portfolio</a>
+        <a href="#contact" data-cursor-hover>Contact</a>
+      </div>
+      <p>© 2026 Portfolio. All rights reserved.</p>
+    </div>
+    <p class="mt-14 font-serif text-[clamp(6rem,20vw,18rem)] italic leading-none tracking-normal text-[#111111]">
+      Shifan Nagarji
+    </p>
+  </section>
+</main>
