@@ -174,7 +174,7 @@
         <div class="mt-5 flex justify-center gap-3 text-sm lg:justify-start">
           <a href="https://github.com/Shifan2077" data-cursor-hover>GitHub</a>
           <a href="https://www.linkedin.com/in/md-shifan-nagarji" data-cursor-hover>LinkedIn</a>
-          <a href="mailto:mdshifannagarji@gmail.com" data-cursor-hover>Email</a>
+          <a [href]="mailtoHref" data-cursor-hover>Email</a>
         </div>
       </div>
       <div appReveal [revealDelay]="120">
@@ -208,15 +208,23 @@
     </div>
   </section>
 
-  <section id="contact" class="relative z-10 mt-10 bg-[radial-gradient(circle_at_50%_0%,#B6FF3B_0%,rgba(182,255,59,0.7)_20%,rgba(182,255,59,0.18)_45%,transparent_70%)] px-5 pb-12 pt-28 text-center sm:px-8 lg:px-12">
+  <section id="contact" class="relative z-10 mt-10 bg-[radial-gradient(circle_at_50%_0%,#B6FF3B_0%,rgba(182,255,59,0.7)_20%,rgba(182,255,59,0.18)_45%,transparent_70%)] px-5 pb-0 pt-28 text-center sm:px-8 lg:px-12">
     <div appReveal>
       <h2 class="font-sans text-[clamp(3rem,8vw,7.5rem)] font-medium leading-none tracking-normal">Let&apos;s Make It Happen</h2>
       <p class="mx-auto mt-5 max-w-xl text-base leading-7 text-[#6B7280]">
         Always open to new opportunities, collaborations, and creative AI challenges.
       </p>
-      <a href="mailto:mdshifannagarji@gmail.com" class="mt-8 inline-flex rounded-full bg-[#111111] px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#A3FF12] hover:text-[#111111]" data-cursor-hover>
-        Get in Touch
-      </a>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a [href]="mailtoHref" class="text-sm font-semibold text-[#111111] underline decoration-black/25 underline-offset-4 transition hover:decoration-[#111111]" data-cursor-hover>
+          Get in Touch
+        </a>
+        <a [href]="gmailHref" target="_blank" rel="noopener" class="inline-flex rounded-full border border-black/10 bg-white/70 px-7 py-4 text-sm font-semibold text-[#111111] transition duration-300 hover:-translate-y-0.5 hover:border-[#A3FF12] hover:bg-white" data-cursor-hover>
+          Open Gmail
+        </a>
+        <button type="button" (click)="copyEmail()" class="inline-flex rounded-full border border-black/10 bg-white/70 px-7 py-4 text-sm font-semibold text-[#111111] transition duration-300 hover:-translate-y-0.5 hover:border-[#A3FF12] hover:bg-white" data-cursor-hover>
+          {{ copiedEmail ? 'Email Copied' : 'Copy Email' }}
+        </button>
+      </div>
     </div>
     <div class="mx-auto mt-20 flex max-w-7xl flex-wrap items-center justify-between gap-5 text-sm text-[#111111]">
       <div class="flex gap-6">
@@ -226,8 +234,8 @@
       </div>
       <p>© 2026 Portfolio. All rights reserved.</p>
     </div>
-    <p class="mt-14 font-serif text-[clamp(6rem,20vw,18rem)] italic leading-none tracking-normal text-[#111111]">
-      Shifan Nagarji
+    <p class="footer-signature mt-14 font-serif text-[clamp(6rem,20vw,18rem)] italic tracking-normal text-[#111111]">
+      Shifan
     </p>
   </section>
 </main>

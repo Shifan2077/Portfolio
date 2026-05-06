@@ -2,6 +2,11 @@
   animation: profileGlow 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
 }
 
+.footer-signature {
+  line-height: 0.72;
+  margin-bottom: 0em;
+}
+
 @keyframes profileGlow {
   from {
     opacity: 0.34;

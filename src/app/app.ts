@@ -10,6 +10,43 @@ import { RevealDirective } from './reveal.directive';
   styleUrl: './app.css',
 })
 export class App {
+  protected readonly contactEmail = 'nagarjishifan@gmail.com';
+  protected copiedEmail = false;
+
+  protected get mailtoHref(): string {
+    const subject = encodeURIComponent('Portfolio enquiry');
+    const body = encodeURIComponent(
+      'Hi Shifan,\n\nI saw your portfolio and would like to get in touch.\n\n'
+    );
+
+    return `mailto:${this.contactEmail}?subject=${subject}&body=${body}`;
+  }
+
+  protected get gmailHref(): string {
+    const params = new URLSearchParams({
+      view: 'cm',
+      fs: '1',
+      to: this.contactEmail,
+      su: 'Portfolio enquiry',
+      body: 'Hi Shifan,\n\nI saw your portfolio and would like to get in touch.\n\n',
+    });
+
+    return `https://mail.google.com/mail/?${params.toString()}`;
+  }
+
+  protected async copyEmail(): Promise<void> {
+    if (!navigator.clipboard) {
+      return;
+    }
+
+    await navigator.clipboard.writeText(this.contactEmail);
+    this.copiedEmail = true;
+
+    window.setTimeout(() => {
+      this.copiedEmail = false;
+    }, 1800);
+  }
+
   protected readonly skills = ['Python', 'RAG Systems', 'Data Analytics', 'AWS', 'SQL', 'OpenCV'];
 
   protected readonly projects: Project[] = [
@@ -66,8 +103,8 @@ export class App {
   protected readonly contacts = [
     {
       label: 'Email',
-      value: 'mdshifannagarji@gmail.com',
-      href: 'mailto:mdshifannagarji@gmail.com',
+      value: this.contactEmail,
+      href: this.mailtoHref,
     },
     {
       label: 'LinkedIn',
