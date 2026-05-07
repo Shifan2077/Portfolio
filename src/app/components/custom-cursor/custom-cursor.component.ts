@@ -1,12 +1,14 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
   Component,
+  ElementRef,
   HostListener,
   Inject,
   NgZone,
   OnDestroy,
   OnInit,
   PLATFORM_ID,
+  ViewChild,
   signal,
 } from '@angular/core';
 
@@ -17,6 +19,9 @@ import {
   styleUrl: './custom-cursor.component.css',
 })
 export class CustomCursorComponent implements OnInit, OnDestroy {
+  @ViewChild('dotElement', { static: true }) private readonly dotElement?: ElementRef<HTMLElement>;
+  @ViewChild('trailElement', { static: true }) private readonly trailElement?: ElementRef<HTMLElement>;
+
   protected readonly isHovering = signal(false);
   protected readonly isVisible = signal(false);
 
@@ -25,6 +30,7 @@ export class CustomCursorComponent implements OnInit, OnDestroy {
 
   private target = { x: -100, y: -100 };
   private frameId = 0;
+  private hasPointer = false;
 
   constructor(
     private readonly ngZone: NgZone,
@@ -46,6 +52,14 @@ export class CustomCursorComponent implements OnInit, OnDestroy {
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
     this.target = { x: event.clientX, y: event.clientY };
+
+    if (!this.hasPointer) {
+      this.dot = { ...this.target };
+      this.trail = { ...this.target };
+      this.hasPointer = true;
+      this.paintCursor();
+    }
+
     this.isVisible.set(true);
   }
 
@@ -71,7 +85,21 @@ export class CustomCursorComponent implements OnInit, OnDestroy {
     this.dot.y += (this.target.y - this.dot.y) * 0.45;
     this.trail.x += (this.target.x - this.trail.x) * 0.14;
     this.trail.y += (this.target.y - this.trail.y) * 0.14;
+    this.paintCursor();
+
     this.frameId = requestAnimationFrame(() => this.animate());
+  }
+
+  private paintCursor(): void {
+    const dot = this.dotElement?.nativeElement;
+    const trail = this.trailElement?.nativeElement;
+
+    if (!dot || !trail) {
+      return;
+    }
+
+    dot.style.transform = `translate3d(${this.dot.x}px, ${this.dot.y}px, 0)`;
+    trail.style.transform = `translate3d(${this.trail.x}px, ${this.trail.y}px, 0)`;
   }
 
   private isInteractive(target: EventTarget | null): boolean {
