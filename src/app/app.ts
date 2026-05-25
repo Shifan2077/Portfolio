@@ -47,7 +47,7 @@ export class App {
     }, 1800);
   }
 
-  protected readonly skills = ['Python', 'RAG Systems', 'Data Analytics', 'AWS', 'SQL', 'OpenCV'];
+  protected readonly skills = ['Python', 'RAG Systems', 'Data Analytics', 'AWS', 'SQL', 'OpenCV','Full Stack Development'];
 
   protected readonly projects: Project[] = [
     {
